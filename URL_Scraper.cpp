@@ -27,9 +27,6 @@ int main() {
   //REGEX LINES
   regex SiteLinkRegex(R"([^\r]<a href="https?:\/\/[\w.\/-]+)");
   regex DomainRegex(R"(http(s)?:\/\/(www\.)?([^\/]+)(/.*)?)");
-  regex ImageLinkRegex(R"([^\r]<img src="(images)?(https?:\/\/)?[\w.\/-]+)");
-  regex ImageTextRegex(R"(alt="[\w -\.\/]+)");
-  regex ImageTextClean(R"(alt=)");
   smatch match;
   
   auto begin = text.cbegin();
@@ -45,21 +42,6 @@ int main() {
     
     begin = match.suffix().first;
   }
-  
-  begin = text.cbegin();
-  
-  while (regex_search(begin, end, match, ImageLinkRegex)) {
-    string temp = match[0];
-    string link = temp.substr(11);
-    temp = regex_search(begin, end, match, ImageTextRegex);
-    string desc = regex_replace(temp, ImageTextClean, "$3");
-    
-    
-    cout<< "Image URL: " << link << endl << "Alt Text: " << desc << endl;
-    
-    begin = match.suffix().first;
-  }
-  
   
   pclose(website);
   return 0;
