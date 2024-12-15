@@ -19,7 +19,7 @@ This project is a simple URL scraper implemented in C++. The program scans a use
    - The program constructs a command using `wget` to fetch the HTML content of the specified URL.
    - The HTML content is read and stored in a string.
 3. **Regex Matching**:
-   - A regex pattern is used to identify hyperlinks (`<a href="https://..."`) in the HTML content.
+   - A regex pattern is used to identify hyperlinks in the HTML content.
    - Another regex extracts the domain name from the full URL.
 4. **Output**:
    - For each extracted hyperlink, the program displays:
