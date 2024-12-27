@@ -6,18 +6,21 @@ using namespace std;
 
 int main() {
 
+  //User Inputted Website
   string url;
   cout << "Please Type the URL of the Website you'd Like to scan: ";
   getline(cin, url);
   string command = "wget -q -O - " + url;
   
   FILE* website = popen(command.c_str(), "r");
-  
+
+  //Error
   if (!website) {
     cout<<"Task failed, try a different URL"<<endl;
     return 1;
   }
-  
+
+  //Get Website
   char buffer[1024];
   string text = "";
   while (fgets(buffer, sizeof(buffer), website) != nullptr) {
@@ -32,7 +35,7 @@ int main() {
   auto begin = text.cbegin();
   auto end = text.cend();
   
-  
+  //URL Search
   while(regex_search(begin, end, match, SiteLinkRegex)) {
     string temp = match[0];
     string link = temp.substr(10);    
