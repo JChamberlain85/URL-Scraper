@@ -1,7 +1,7 @@
 # URL Scraper
 
 ## Overview
-This project is a simple URL scraper implemented in C++. The program scans a user-provided website URL, extracts hyperlinks from its HTML content, and displays the full URL along with the corresponding domain names. It utilizes the `wget` command-line tool to fetch the webpage content and regular expressions (`regex`) to parse and process the data.
+This project is a simple URL scraper implemented in C++. The program scans a user-provided website URL, extracts hyperlinks from its HTML content, and displays the full URL along with the corresponding domain names. It utilizes the `wget` command-line tool to fetch the webpage content and `regex` to parse and process the data.
 
 ---
 
